@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://daol41ogyp76t"]
+
+[ext_resource type="Texture2D" uid="uid://d2c2ua67rg1uc" path="res://art/CanvasTextures/tree.tres" id="1_3tmd5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22kbt"]
+
+[node name="Tree" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_22kbt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(50, 50)
+texture = ExtResource("1_3tmd5")

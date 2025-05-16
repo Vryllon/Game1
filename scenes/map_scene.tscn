@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd023pq1cborp"]
+
+[ext_resource type="Texture2D" uid="uid://dt8fpscwlbhkb" path="res://art/CanvasTextures/white.tres" id="1_6yjdp"]
+[ext_resource type="Script" path="res://scripts/map_scene.gd" id="1_vx6jn"]
+
+[node name="map_scene" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_vx6jn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.0901961, 0.309804, 0.133333, 1)
+show_behind_parent = true
+position = Vector2(576, 324)
+scale = Vector2(1152, 648)
+texture = ExtResource("1_6yjdp")

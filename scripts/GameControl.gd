@@ -1,0 +1,64 @@
+extends Node2D
+
+var map_grid: Array[Node2D]
+const map_scene_preload = preload("res://scenes/map_scene.tscn")
+
+func _ready():
+	
+	# Setup map grid
+	for i in range(9):
+		map_grid.append(null)
+	map_grid[4] = get_parent().get_node("map_scene")
+
+func _on_player_scene_exit(exit_direction):
+	
+	#print_debug(exit_direction)
+	
+	# Handle changing map
+	
+	var previous_map = map_grid[4]
+	
+	# left
+	if(exit_direction == "right"):
+		for i in range(3):
+			if(map_grid[i*3]): map_grid[i*3].queue_free()
+			map_grid[i*3] = map_grid[i*3+1]
+			map_grid[i*3+1] = map_grid[i*3+2]
+			map_grid[i*3+2] = null
+	# right
+	elif(exit_direction == "left"):
+		for i in range(3):
+			if(map_grid[i*3+2]): map_grid[i*3+2].queue_free()
+			map_grid[i*3+2] = map_grid[i*3+1]
+			map_grid[i*3+1] = map_grid[i*3]
+			map_grid[i*3] = null
+	# top
+	elif(exit_direction == "top"):
+		#print_debug("exit top")
+		for i in range(3):
+			if(map_grid[i+6]): map_grid[i+6].queue_free()
+			map_grid[i+6] = map_grid[i+3]
+			map_grid[i+3] = map_grid[i]
+			map_grid[i] = null
+			
+	# bottom
+	elif(exit_direction == "bottom"):
+		for i in range(3):
+			if(map_grid[i]): map_grid[i].queue_free()
+			map_grid[i] = map_grid[i+3]
+			map_grid[i+3] = map_grid[i+6]
+			map_grid[i+6] = null
+	
+	# Show map for moved position
+	if(map_grid[4]):
+		map_grid[4].show()
+	else:
+		map_grid[4] = map_scene_preload.instantiate()
+		add_sibling(map_grid[4])
+	
+	# hide previous map
+	previous_map.hide()
+	
+	# print map array
+	# print_debug(map_grid)
+	
