@@ -1,16 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://daol41ogyp76t"]
 
-[ext_resource type="Texture2D" uid="uid://d2c2ua67rg1uc" path="res://art/CanvasTextures/tree.tres" id="1_3tmd5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60h5w"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_22kbt"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_hdr8d"]
 
 [node name="Tree" type="Node2D"]
+top_level = true
+position = Vector2(0, -25)
+scale = Vector2(50, 50)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_22kbt")
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_60h5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(50, 50)
-texture = ExtResource("1_3tmd5")
+self_modulate = Color(0.301961, 0.188235, 0.0313726, 1)
+texture = SubResource("CanvasTexture_hdr8d")

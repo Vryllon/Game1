@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c234a382r8ykq"]
 
 [ext_resource type="Script" path="res://scripts/player_scene.gd" id="1_e7vf5"]
-[ext_resource type="Texture2D" uid="uid://bhe4hdp8o5xut" path="res://icon.svg" id="1_q6gt2"]
+[ext_resource type="Texture2D" uid="uid://bhe4hdp8o5xut" path="res://art/icon.svg" id="2_mbpdd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewcp4"]
 radius = 32.0156
@@ -10,7 +10,7 @@ radius = 32.0156
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_q6gt2")
+"texture": ExtResource("2_mbpdd")
 }],
 "loop": true,
 "name": &"default",
