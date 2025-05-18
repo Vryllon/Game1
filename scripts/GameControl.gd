@@ -52,7 +52,7 @@ func _on_player_scene_exit(exit_direction):
 	# Show map for moved position
 	if(map_grid[4]):
 		map_grid[4].show()
-		previous_map.process_mode = Node.PROCESS_MODE_INHERIT
+		map_grid[4].process_mode = Node.PROCESS_MODE_INHERIT
 	else:
 		map_grid[4] = map_scene_preload.instantiate()
 		add_sibling(map_grid[4])
