@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqm4i4di0pf4d"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3vuhe"]
+
+[node name="Stick" type="Node2D"]
+top_level = true
+scale = Vector2(20, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.305882, 0.203922, 0.0470588, 1)
+texture = SubResource("CanvasTexture_3vuhe")
