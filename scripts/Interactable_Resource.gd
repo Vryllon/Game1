@@ -24,4 +24,4 @@ func drop_resources():
 			resource = resource_preload_array[i].instantiate()
 			add_child(resource)
 			resource.position = position
-			print_debug(resource.position)
+			#print_debug(resource.position)
