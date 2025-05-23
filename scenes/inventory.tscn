@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0q451gsuvrn2"]
+
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_d6lph"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rk7lj"]
+
+[node name="Inventory" type="Node2D"]
+visible = false
+script = ExtResource("1_d6lph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.396078, 0.2, 0, 0.356863)
+show_behind_parent = true
+position = Vector2(576, 324)
+scale = Vector2(1152, 648)
+texture = SubResource("CanvasTexture_rk7lj")
