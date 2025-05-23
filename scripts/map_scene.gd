@@ -1,6 +1,6 @@
 extends Node2D
 
-var tree_scene_preload = preload("res://scenes/tree.tscn")
+var tree_scene_preload = preload("res://scenes/Iteractable_Resources/tree.tscn")
 
 var tree_num = 10
 

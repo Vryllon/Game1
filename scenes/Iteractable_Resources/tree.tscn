@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://daol41ogyp76t"]
 
-[ext_resource type="Script" path="res://scripts/tree.gd" id="1_gcql7"]
+[ext_resource type="Script" path="res://scripts/Interactable_Resources/tree.gd" id="1_dutmr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ca0cu"]
 
@@ -19,7 +19,7 @@ fill_from = Vector2(0.5, 0.5)
 top_level = true
 position = Vector2(0, -25)
 scale = Vector2(50, 50)
-script = ExtResource("1_gcql7")
+script = ExtResource("1_dutmr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
