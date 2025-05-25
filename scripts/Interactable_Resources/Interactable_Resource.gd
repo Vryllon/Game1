@@ -13,7 +13,7 @@ func _process(delta):
 		interact()
 
 func interact():
-	print_debug("Interact")
+	#print_debug("Interact")
 	drop_resources()
 
 func drop_resources():
