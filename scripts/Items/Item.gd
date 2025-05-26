@@ -18,6 +18,9 @@ func _process(delta):
 		try_gravitate_towards_player()
 
 func try_gravitate_towards_player():
+	# If inventory is full then exit the function
+	if get_node("/root/Main/Inventory").is_full():
+		return
 	# Gravitate towards the player when in the players Pickup_Range Area2D
 	var player = $Area2D.get_overlapping_areas()
 	if player != []:
