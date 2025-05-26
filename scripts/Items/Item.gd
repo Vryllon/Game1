@@ -5,6 +5,8 @@ static var preload_dict : Dictionary # stores the list of resources of all items
 
 const SPEED = 1
 
+var in_inventory = false
+
 func _ready():
 	# Initialize item list preloads
 	preload_dict = {
@@ -12,7 +14,8 @@ func _ready():
 	}
 
 func _process(delta):
-	try_gravitate_towards_player()
+	if !in_inventory:
+		try_gravitate_towards_player()
 
 func try_gravitate_towards_player():
 	# Gravitate towards the player when in the players Pickup_Range Area2D
@@ -26,8 +29,6 @@ func check_if_collect(player_position):
 	if (player_position - position).length() < 5:
 		#print_debug(name)
 		# Add the item to the player's inventory
-		get_node("/root/Main/Inventory").add_item(name)
-		
-		# Remove the item from the tree
-		queue_free()
+		if get_node("/root/Main/Inventory").add_item(self):
+			in_inventory = true
 
