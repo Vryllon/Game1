@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://7mghutk255tp"]
+[gd_scene load_steps=4 format=3 uid="uid://7mghutk255tp"]
 
-[node name="GameUI" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_yf83a"]
+
+[sub_resource type="Gradient" id="Gradient_jskk5"]
+offsets = PackedFloat32Array(0.993548, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 0, 0, 0.65098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jc1u4"]
+gradient = SubResource("Gradient_jskk5")
+width = 100
+
+[node name="GUI" type="Node2D"]
+script = ExtResource("1_yf83a")
+
+[node name="Life_Bar" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Life_Bar"]
+position = Vector2(516, 18.5)
+scale = Vector2(1, 20)
+texture = SubResource("GradientTexture1D_jc1u4")
