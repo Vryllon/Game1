@@ -15,7 +15,10 @@ func update_life_force(life_delta):
 	life_force += life_delta
 	#print_debug(life_force)
 	# update display
-	gradient.set_offset(0,life_force/life_force_max)
-	gradient.set_offset(1,life_force/life_force_max + 0.05)
+	gradient.set_offset(0,life_force/life_force_max - 0.05)
+	gradient.set_offset(1,life_force/life_force_max)
 	
 	return life_force > 0
+
+func test():
+	print_debug("test")

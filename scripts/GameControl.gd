@@ -11,9 +11,14 @@ func _ready():
 	map_grid[4] = get_parent().get_node("map_scene")
 
 func _on_player_scene_exit(exit_direction):
-	
 	#print_debug(exit_direction)
-	
+	handle_map_change(exit_direction)
+	#$GUI.get_script().update_life_force(-20)
+	if !get_parent().get_node("GUI").update_life_force(-20):
+		#Game Over
+		pass
+
+func handle_map_change(exit_direction):
 	# Handle changing map
 	
 	var previous_map = map_grid[4]
@@ -63,4 +68,3 @@ func _on_player_scene_exit(exit_direction):
 	
 	# print map array
 	# print_debug(map_grid)
-	

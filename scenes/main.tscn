@@ -19,7 +19,6 @@ position = Vector2(576, 324)
 
 [node name="Inventory" parent="." instance=ExtResource("3_63in1")]
 
-[node name="GameUI" parent="." instance=ExtResource("5_elony")]
+[node name="GUI" parent="." instance=ExtResource("5_elony")]
 
 [connection signal="exit" from="PlayerScene" to="GameControl" method="_on_player_scene_exit"]
-[connection signal="exit" from="PlayerScene" to="GameUI" method="_on_player_scene_exit"]
