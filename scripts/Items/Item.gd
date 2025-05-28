@@ -7,6 +7,10 @@ const SPEED = 1
 
 var in_inventory = false
 
+# Mouse Drag variables
+var drag_selected = false
+var mouse_offset = Vector2(0,0)
+
 func _ready():
 	# Initialize item list preloads
 	preload_dict = {
@@ -16,6 +20,12 @@ func _ready():
 func _process(delta):
 	if !in_inventory:
 		try_gravitate_towards_player()
+	elif visible:
+		follow_mouse_on_drag()
+
+func follow_mouse_on_drag():
+	if drag_selected:
+		position = get_global_mouse_position() + mouse_offset
 
 func try_gravitate_towards_player():
 	# If inventory is full then exit the function
