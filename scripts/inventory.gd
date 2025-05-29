@@ -25,7 +25,7 @@ func _unhandled_input(event):
 			var mouse_pos = get_global_mouse_position()
 			for item in inventory_slots:
 				if item:
-					var distance = abs((item.position - mouse_pos).length())
+					var distance = abs((item.global_position - mouse_pos).length())
 					if distance < closest_distance:
 						closest_distance = distance
 						closest_item = item
@@ -34,6 +34,8 @@ func _unhandled_input(event):
 				closest_item.mouse_offset = closest_item.position - get_global_mouse_position()
 		else:
 			if closest_item: closest_item.drag_selected = false
+			closest_distance = INF
+			closest_item = null
 
 func add_item(item : Node2D):
 	# Insert the item into the first empty slot found
