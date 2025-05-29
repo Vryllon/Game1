@@ -6,6 +6,7 @@
 
 [node name="Inventory" type="Node2D"]
 visible = false
+top_level = true
 script = ExtResource("1_d6lph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -11,6 +11,7 @@ gradient = SubResource("Gradient_jskk5")
 width = 100
 
 [node name="GUI" type="Node2D"]
+top_level = true
 script = ExtResource("1_yf83a")
 
 [node name="Life_Bar" type="Node2D" parent="."]

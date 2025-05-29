@@ -22,13 +22,14 @@ scale = Vector2(50, 50)
 script = ExtResource("1_dutmr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 scale = Vector2(0.05, 0.05)
 shape = SubResource("CircleShape2D_ca0cu")
 
 [node name="Interactable_Area" type="Area2D" parent="."]
-collision_mask = 2
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_Area"]
 scale = Vector2(0.075, 0.075)

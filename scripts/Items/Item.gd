@@ -14,7 +14,8 @@ var mouse_offset = Vector2(0,0)
 func _ready():
 	# Initialize item list preloads
 	preload_dict = {
-		"Stick" : preload("res://scenes/Items/Resources/stick.tscn")
+		"Stick" : preload("res://scenes/Items/Resources/stick.tscn"),
+		"Apple" : preload("res://scenes/Items/Resources/apple.tscn")
 	}
 
 func _process(delta):

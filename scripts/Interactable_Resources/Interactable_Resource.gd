@@ -17,9 +17,9 @@ func interact():
 	drop_resources()
 
 func drop_resources():
-	var rand = randf()
 	var resource
 	for i in range(resource_chance_array.size()):
+		var rand = randf()
 		if(rand <= resource_chance_array[i]):
 			resource = resource_preload_array[i].instantiate()
 			add_child(resource)
