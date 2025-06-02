@@ -1,4 +1,4 @@
 extends Food
 
 func _ready():
-	recovery_amount = 100
+	recovery_amount = 20

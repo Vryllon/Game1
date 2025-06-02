@@ -46,6 +46,6 @@ func check_if_collect(player_position):
 		if get_node("/root/Main/Inventory").add_item(self):
 			in_inventory = true
 
-func delete(node):
-	node.queue_free()
+func delete():
+	queue_free()
 
