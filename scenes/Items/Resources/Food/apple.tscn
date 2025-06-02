@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxqrwjhfg3q6k"]
 
-[ext_resource type="Script" path="res://scripts/Items/Resources/apple.gd" id="1_go8um"]
+[ext_resource type="Script" path="res://scripts/Items/Resources/Food/apple.gd" id="1_4cbst"]
 
 [sub_resource type="Gradient" id="Gradient_qgpk7"]
 offsets = PackedFloat32Array(0.987097, 1)
@@ -19,7 +19,7 @@ fill_to = Vector2(1, 0.454128)
 [node name="Apple" type="Node2D"]
 top_level = true
 scale = Vector2(20, 20)
-script = ExtResource("1_go8um")
+script = ExtResource("1_4cbst")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)

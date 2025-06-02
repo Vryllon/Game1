@@ -13,10 +13,18 @@ func _ready():
 func update_life_force(life_delta):
 	# update number
 	life_force += life_delta
+	# prevent overflow
+	if life_force > life_force_max:
+		life_force = life_force_max
 	#print_debug(life_force)
+	
 	# update display
-	gradient.set_offset(0,life_force/life_force_max - 0.05)
-	gradient.set_offset(1,life_force/life_force_max)
+	if life_delta < 0:
+		gradient.set_offset(0,life_force/life_force_max - 0.05)
+		gradient.set_offset(1,life_force/life_force_max)
+	elif life_delta > 0:
+		gradient.set_offset(1,life_force/life_force_max)
+		gradient.set_offset(0,life_force/life_force_max - 0.05)
 	
 	return life_force > 0
 

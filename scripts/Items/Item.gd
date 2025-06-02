@@ -15,7 +15,7 @@ func _ready():
 	# Initialize item list preloads
 	preload_dict = {
 		"Stick" : preload("res://scenes/Items/Resources/stick.tscn"),
-		"Apple" : preload("res://scenes/Items/Resources/apple.tscn")
+		"Apple" : preload("res://scenes/Items/Resources/Food/apple.tscn")
 	}
 
 func _process(delta):
@@ -45,4 +45,7 @@ func check_if_collect(player_position):
 		# Add the item to the player's inventory
 		if get_node("/root/Main/Inventory").add_item(self):
 			in_inventory = true
+
+func delete():
+	queue_free()
 
