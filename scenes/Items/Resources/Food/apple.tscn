@@ -1,29 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxqrwjhfg3q6k"]
+[gd_scene load_steps=5 format=3 uid="uid://dnhf5lsqdtitc"]
 
-[ext_resource type="Script" path="res://scripts/Items/Resources/Food/apple.gd" id="1_4cbst"]
+[ext_resource type="Script" path="res://scripts/Items/Resources/Food/apple.gd" id="1_7jald"]
 
-[sub_resource type="Gradient" id="Gradient_qgpk7"]
-offsets = PackedFloat32Array(0.987097, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_28xpm"]
+offsets = PackedFloat32Array(0.993548, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xhxio"]
-gradient = SubResource("Gradient_qgpk7")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd6fm"]
+gradient = SubResource("Gradient_28xpm")
 width = 100
 height = 100
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.454128)
+fill_to = Vector2(1, 0.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ihmc1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4h7u"]
 
 [node name="Apple" type="Node2D"]
 top_level = true
 scale = Vector2(20, 20)
-script = ExtResource("1_4cbst")
+script = ExtResource("1_7jald")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.886275, 0, 0, 1)
 scale = Vector2(0.01, 0.01)
-texture = SubResource("GradientTexture2D_xhxio")
+texture = SubResource("GradientTexture2D_vd6fm")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -31,4 +32,4 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.05, 0.05)
-shape = SubResource("CircleShape2D_ihmc1")
+shape = SubResource("CircleShape2D_x4h7u")

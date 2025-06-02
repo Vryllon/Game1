@@ -10,4 +10,4 @@ func _unhandled_input(event):
 
 func eat():
 	get_node("/root/Main/GUI").update_life_force(recovery_amount)
-	delete()
+	get_node("/root/Main/Inventory").delete_item(self)

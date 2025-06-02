@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_yf83a"]
 
 [sub_resource type="Gradient" id="Gradient_jskk5"]
-offsets = PackedFloat32Array(0.993548, 1)
+offsets = PackedFloat32Array(0.95, 1)
 colors = PackedColorArray(0, 1, 0, 1, 0, 0, 0, 0.65098)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jc1u4"]

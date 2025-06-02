@@ -57,7 +57,7 @@ func delete_item(item : Node2D):
 	var slot = inventory_slots.find(item)
 	if slot != -1: 
 		inventory_slots[slot] = null
-		item.delete()
+		item.delete(item)
 
 func is_full():
 	return filled_slots >= inventory_size
