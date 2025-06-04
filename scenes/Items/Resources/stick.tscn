@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm8mqb5abnjms"]
 
-[ext_resource type="Script" path="res://scripts/Items/Resources/Food/apple.gd" id="1_7axfl"]
+[ext_resource type="Script" path="res://scripts/Items/Resources/stick.gd" id="1_gkc7d"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_c8tug"]
 
@@ -9,7 +9,7 @@
 [node name="Stick" type="Node2D"]
 top_level = true
 scale = Vector2(20, 2)
-script = ExtResource("1_7axfl")
+script = ExtResource("1_gkc7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.341176, 0.164706, 0.0196078, 1)
