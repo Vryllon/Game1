@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm8mqb5abnjms"]
+[gd_scene load_steps=5 format=3 uid="uid://cm8mqb5abnjms"]
 
-[ext_resource type="Script" path="res://scripts/Items/Resources/Food/apple.gd" id="1_7jald"]
+[ext_resource type="Script" path="res://scripts/Items/Resources/Food/apple.gd" id="1_7axfl"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_3vuhe"]
+[sub_resource type="Gradient" id="Gradient_uw2mc"]
+offsets = PackedFloat32Array(0.987097, 1)
+colors = PackedColorArray(0.84956, 3.29696e-06, 1.54018e-06, 1, 1, 1, 1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk327"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jby7p"]
+gradient = SubResource("Gradient_uw2mc")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
-[node name="Stick" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkqoh"]
+
+[node name="Apple" type="Node2D"]
 top_level = true
-scale = Vector2(20, 2)
-script = ExtResource("1_ejnwi")
+scale = Vector2(20, 20)
+script = ExtResource("1_7axfl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.305882, 0.203922, 0.0470588, 1)
-texture = SubResource("CanvasTexture_3vuhe")
+scale = Vector2(0.01, 0.01)
+texture = SubResource("GradientTexture2D_jby7p")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -21,4 +31,4 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.05, 0.05)
-shape = SubResource("RectangleShape2D_gk327")
+shape = SubResource("CircleShape2D_mkqoh")
