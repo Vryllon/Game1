@@ -1,24 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm8mqb5abnjms"]
+[gd_scene load_steps=4 format=3 uid="uid://82gg5wvi5hn2"]
 
-[ext_resource type="Script" path="res://scripts/Items/Resources/stick.gd" id="1_gkc7d"]
+[ext_resource type="Script" path="res://scripts/Items/Resources/stick.gd" id="1_nljd0"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_c8tug"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_0u3p0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gttr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2lvu"]
+size = Vector2(20, 2)
 
 [node name="Stick" type="Node2D"]
 top_level = true
-scale = Vector2(20, 2)
-script = ExtResource("1_gkc7d")
+script = ExtResource("1_nljd0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.341176, 0.164706, 0.0196078, 1)
-texture = SubResource("CanvasTexture_c8tug")
+self_modulate = Color(0.368627, 0.2, 0.0156863, 1)
+scale = Vector2(20, 2)
+texture = SubResource("CanvasTexture_0u3p0")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(0.05, 0.05)
-shape = SubResource("RectangleShape2D_1gttr")
+visible = false
+shape = SubResource("RectangleShape2D_w2lvu")
