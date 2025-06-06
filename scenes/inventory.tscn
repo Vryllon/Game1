@@ -1,17 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0q451gsuvrn2"]
+[gd_scene load_steps=8 format=3 uid="uid://b0q451gsuvrn2"]
 
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_d6lph"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rk7lj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pjn51"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0pn1h"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ymsvm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8y566"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ibkd8"]
 
 [node name="Inventory" type="Node2D"]
 visible = false
 top_level = true
 script = ExtResource("1_d6lph")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.396078, 0.2, 0, 0.356863)
+[node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(0.392157, 0.196078, 0, 0.392157)
 show_behind_parent = true
 position = Vector2(576, 324)
 scale = Vector2(1152, 648)
 texture = SubResource("CanvasTexture_rk7lj")
+
+[node name="Bag" type="Sprite2D" parent="."]
+self_modulate = Color(0.498039, 0, 0, 0.392157)
+position = Vector2(288, 324)
+scale = Vector2(576, 648)
+texture = SubResource("CanvasTexture_pjn51")
+
+[node name="Crafting" type="Sprite2D" parent="."]
+self_modulate = Color(0.419608, 0, 0.380392, 0.392157)
+position = Vector2(720, 324)
+scale = Vector2(288, 648)
+texture = SubResource("CanvasTexture_0pn1h")
+
+[node name="Drop" type="Sprite2D" parent="."]
+self_modulate = Color(0.196078, 0.196078, 0.196078, 0.392157)
+position = Vector2(1008, 243)
+scale = Vector2(288, 162)
+texture = SubResource("CanvasTexture_ymsvm")
+
+[node name="Trash" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.392157)
+position = Vector2(1008, 81)
+scale = Vector2(288, 162)
+texture = SubResource("CanvasTexture_8y566")
+
+[node name="Action" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(1008, 486)
+scale = Vector2(288, 324)
+texture = SubResource("CanvasTexture_ibkd8")
