@@ -11,12 +11,8 @@ var in_inventory = false
 var drag_selected = false
 var mouse_offset = Vector2(0,0)
 
-func _ready():
-	# Initialize item list preloads
-	preload_dict = {
-		"Stick" : preload("res://scenes/Items/Resources/stick.tscn"),
-		"Apple" : preload("res://scenes/Items/Resources/Food/apple.tscn")
-	}
+func Item(texture):
+	self.get_node("Sprite2D").set_texture(texture)
 
 func _process(delta):
 	if !in_inventory:
