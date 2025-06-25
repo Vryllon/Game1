@@ -11,14 +11,23 @@ var in_inventory = false
 var drag_selected = false
 var mouse_offset = Vector2(0,0)
 
-func Item(texture):
-	self.get_node("Sprite2D").set_texture(texture)
-
 func _process(delta):
 	if !in_inventory:
 		try_gravitate_towards_player()
 	elif visible:
 		follow_mouse_on_drag()
+
+func Item(name, texture, height, width):
+	initialize_item(name, texture, height, width)
+
+func initialize_item(name, texture, height, width):
+	self.set_name(name)
+	get_node("Sprite2D").texture = texture
+	self.transform.x = Vector2(width, 0)
+	self.transform.y = Vector2(0, height)
+
+func set_texture(texture):
+	get_node("Sprite2D").texture = texture
 
 func follow_mouse_on_drag():
 	if drag_selected:
