@@ -6,6 +6,8 @@ static var preload_dict : Dictionary # stores the list of resources of all items
 const SPEED = 1
 
 var in_inventory = false
+var recovery_amount = 0
+
 
 # Mouse Drag variables
 var drag_selected = false
@@ -17,14 +19,21 @@ func _process(delta):
 	elif visible:
 		follow_mouse_on_drag()
 
-func Item(name, texture, height, width):
-	initialize_item(name, texture, height, width)
-
-func initialize_item(name, texture, height, width):
+func initialize_item_custom(name, texture, height, width, recovery_amount):
 	self.set_name(name)
 	get_node("Sprite2D").texture = texture
 	self.transform.x = Vector2(width, 0)
 	self.transform.y = Vector2(0, height)
+	self.recovery_amount = recovery_amount
+
+func initialize_item(name):
+	var item_data = GLOBAL.item_data[name]
+	if item_data:
+		self.set_name(name)
+		get_node("Sprite2D").texture = load(item_data.texture_path)
+		self.transform.x = Vector2(item_data.width, 0)
+		self.transform.y = Vector2(0, item_data.height)
+		self.recovery_amount = item_data.recovery_amount
 
 func set_texture(texture):
 	get_node("Sprite2D").texture = texture
@@ -53,4 +62,15 @@ func check_if_collect(player_position):
 
 func delete():
 	queue_free()
+
+
+# Food Handling
+func _unhandled_input(event):
+	if recovery_amount != 0 and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.is_pressed():
+		if global_position.x > 1000:
+			eat()
+
+func eat():
+	get_node("/root/Main/GUI").update_life_force(recovery_amount)
+	get_node("/root/Main/Inventory").delete_item(self)
 

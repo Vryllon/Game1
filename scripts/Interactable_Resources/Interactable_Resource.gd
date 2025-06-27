@@ -2,8 +2,10 @@ extends Node2D
 class_name Interactable_Resource
 
 var interactable_area : Area2D 
-var resource_preload_array : Array[Resource]
-var resource_chance_array : Array[float]
+var loot_table_items : Array[String]
+var loot_table_probs : Array[float]
+
+var Item = preload("res://scenes/Items/item.tscn")
 
 func Interactable_Resource(name, texture, height, width):
 	initialize_interactable_resource(name, texture, height, width)
@@ -27,10 +29,10 @@ func interact():
 
 func drop_resources():
 	var resource
-	for i in range(resource_chance_array.size()):
+	for i in range(loot_table_probs.size()):
 		var rand = randf()
-		if(rand <= resource_chance_array[i]):
-			resource = resource_preload_array[i].instantiate()
+		if(rand <= loot_table_probs[i]):
+			resource = Item.instantiate()
 			add_child(resource)
 			resource.position = position
-			print_debug(resource.position)
+			resource.initialize_item(loot_table_items[i])
