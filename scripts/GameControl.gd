@@ -9,6 +9,9 @@ func _ready():
 	for i in range(9):
 		map_grid.append(null)
 	map_grid[4] = get_parent().get_node("map_scene")
+	
+	# set global current map variable
+	GLOBAL.current_map = map_grid[4]
 
 func _on_player_scene_exit(exit_direction):
 	#print_debug(exit_direction)
@@ -61,6 +64,9 @@ func handle_map_change(exit_direction):
 	else:
 		map_grid[4] = map_scene_preload.instantiate()
 		add_sibling(map_grid[4])
+	
+	# set global current map variable
+	GLOBAL.current_map = map_grid[4]
 	
 	# hide previous map
 	previous_map.hide()

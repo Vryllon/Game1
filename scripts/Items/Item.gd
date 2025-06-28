@@ -65,12 +65,8 @@ func delete():
 
 
 # Food Handling
-func _unhandled_input(event):
-	if recovery_amount != 0 and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.is_pressed():
-		if global_position.x > 1000:
-			eat()
-
 func eat():
-	get_node("/root/Main/GUI").update_life_force(recovery_amount)
-	get_node("/root/Main/Inventory").delete_item(self)
+	if(recovery_amount != 0):
+		get_node("/root/Main/GUI").update_life_force(recovery_amount)
+		get_node("/root/Main/Inventory").delete_item(self)
 

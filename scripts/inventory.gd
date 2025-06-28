@@ -7,6 +7,7 @@ var inventory_size = 10
 # Item Dragging Variables
 var closest_item = null
 var closest_distance = INF
+var dropped_item = null
 
 func _ready():
 	# Initializes inventory slots to empty
@@ -35,7 +36,20 @@ func _unhandled_input(event):
 		else:
 			if closest_item: closest_item.drag_selected = false
 			closest_distance = INF
+			dropped_item = closest_item
 			closest_item = null
+	
+	# Handle dropping items in various sections of the inventory
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.is_pressed():
+		# Action (Eating only for now)
+		if dropped_item.global_position.x > $Action.global_position.x - $Action.global_scale.x/2 and dropped_item.global_position.y > $Action.global_position.y - $Action.global_scale.y/2:
+			dropped_item.eat()
+		# Trash (deletes the item)
+		if dropped_item.global_position.x > $Trash.global_position.x - $Trash.global_scale.x/2 and dropped_item.global_position.y < $Trash.global_position.y + $Trash.global_scale.y/2:
+			delete_item(dropped_item)
+		# Drop (Removes the item from the inventory and reparents it to the current map)
+		if dropped_item.global_position.x > $Drop.global_position.x - $Drop.global_scale.x/2 and dropped_item.global_position.y < $Drop.global_position.y + $Drop.global_scale.y/2:
+			drop_item(dropped_item)
 
 func add_item(item : Node2D):
 	# Insert the item into the first empty slot found
@@ -51,13 +65,21 @@ func add_item(item : Node2D):
 	return false
 
 func drop_item(item : Node2D):
-	pass
+	var slot = inventory_slots.find(item)
+	if slot != -1: 
+		item.reparent(GLOBAL.current_map)
+		item.scale /= 4
+		item.global_position = get_node("/root/Main/PlayerScene").global_position + Vector2(100,0)
+		item.in_inventory = false
+		inventory_slots[slot] = null
+		print_debug("Drop Item")
 
 func delete_item(item : Node2D):
 	var slot = inventory_slots.find(item)
 	if slot != -1: 
 		inventory_slots[slot] = null
 		item.delete()
+		print_debug("Delete Item")
 
 func is_full():
 	return filled_slots >= inventory_size
