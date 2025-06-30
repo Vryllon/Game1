@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fngl0c0insap"]
 
 [ext_resource type="Script" path="res://scripts/Items/Item.gd" id="1_w0ttr"]
-[ext_resource type="Texture2D" uid="uid://booxwaph54xnf" path="res://art/Items/DefualtTexture.tres" id="2_tx2fo"]
+[ext_resource type="Texture2D" uid="uid://booxwaph54xnf" path="res://art/DefualtTexture.tres" id="2_244sg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_365nf"]
 
@@ -12,7 +12,7 @@ script = ExtResource("1_w0ttr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_tx2fo")
+texture = ExtResource("2_244sg")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.05, 0.05)

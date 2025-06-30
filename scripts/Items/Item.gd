@@ -19,14 +19,8 @@ func _process(delta):
 	elif visible:
 		follow_mouse_on_drag()
 
-func initialize_item_custom(name, texture, height, width, recovery_amount):
-	self.set_name(name)
-	get_node("Sprite2D").texture = texture
-	self.transform.x = Vector2(width, 0)
-	self.transform.y = Vector2(0, height)
-	self.recovery_amount = recovery_amount
-
-func initialize_item(name):
+# Initialization
+func initialize(name):
 	var item_data = GLOBAL.item_data[name]
 	if item_data:
 		self.set_name(name)

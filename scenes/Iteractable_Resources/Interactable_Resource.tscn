@@ -1,25 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://daol41ogyp76t"]
+[gd_scene load_steps=5 format=3 uid="uid://cncg66krh38xh"]
 
-[ext_resource type="Script" path="res://scripts/Interactable_Resources/tree.gd" id="1_dutmr"]
+[ext_resource type="Script" path="res://scripts/Interactable_Resources/Interactable_Resource.gd" id="1_1jou5"]
+[ext_resource type="Texture2D" uid="uid://booxwaph54xnf" path="res://art/DefualtTexture.tres" id="2_wvmv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ca0cu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f4hog"]
 
-[sub_resource type="Gradient" id="Gradient_u4o4a"]
-offsets = PackedFloat32Array(0.490323, 0.522581)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xtrx8"]
-gradient = SubResource("Gradient_u4o4a")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[node name="Tree" type="Node2D"]
+[node name="Interactable_Resource" type="Node2D"]
 top_level = true
 position = Vector2(0, -25)
-scale = Vector2(50, 50)
-script = ExtResource("1_dutmr")
+script = ExtResource("1_1jou5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -36,6 +27,5 @@ scale = Vector2(0.075, 0.075)
 shape = SubResource("CircleShape2D_f4hog")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0.2, 0.0352941, 1)
-scale = Vector2(0.025, 0.025)
-texture = SubResource("GradientTexture2D_xtrx8")
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_wvmv5")
