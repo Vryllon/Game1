@@ -61,6 +61,6 @@ func delete():
 # Food Handling
 func eat():
 	if(recovery_amount != 0):
-		get_node("/root/Main/GUI").update_life_force(recovery_amount)
+		GLOBAL.update_life_force(recovery_amount)
 		get_node("/root/Main/Inventory").delete_item(self)
 

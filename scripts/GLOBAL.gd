@@ -1,6 +1,8 @@
 extends Node
 class_name GLOBAL
 
+static var GUI : Node2D
+
 # Item Data
 
 static var item_data = {
@@ -25,3 +27,18 @@ static var current_map : Node2D
 
 static var life_force_max = 100
 static var life_force = life_force_max
+
+# updates the life force of the character
+# returns false if <=0 and true otherwise
+static func update_life_force(life_delta):
+	# update number
+	GLOBAL.life_force += life_delta
+	# prevent overflow
+	if life_force > life_force_max:
+		life_force = life_force_max
+	print_debug(life_force)
+	
+	# Update GUI
+	if GUI: GUI.update_life_display()
+	
+	return life_force > 0

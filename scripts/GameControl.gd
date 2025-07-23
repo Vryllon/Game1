@@ -17,7 +17,7 @@ func _on_player_scene_exit(exit_direction):
 	#print_debug(exit_direction)
 	handle_map_change(exit_direction)
 	#$GUI.get_script().update_life_force(-20)
-	if !get_parent().get_node("GUI").update_life_force(-20):
+	if GLOBAL.update_life_force(-20):
 		#Game Over
 		pass
 

@@ -66,11 +66,12 @@ func add_item(item : Node2D):
 
 func drop_item(item : Node2D):
 	var slot = inventory_slots.find(item)
-	if slot != -1: 
-		item.reparent(GLOBAL.current_map)
+	if slot != -1:
 		item.scale /= 4
 		item.global_position = get_node("/root/Main/PlayerScene").global_position + Vector2(100,0)
 		item.in_inventory = false
+		item.reparent(GLOBAL.current_map)
+		filled_slots -= 1
 		inventory_slots[slot] = null
 		print_debug("Drop Item")
 
@@ -80,6 +81,7 @@ func delete_item(item : Node2D):
 		inventory_slots[slot] = null
 		item.delete()
 		print_debug("Delete Item")
+		filled_slots -= 1
 
 func is_full():
 	return filled_slots >= inventory_size

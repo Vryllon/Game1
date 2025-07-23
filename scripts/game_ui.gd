@@ -4,26 +4,18 @@ var gradient: Gradient
 
 func _ready():
 	gradient = $Life_Bar/Sprite2D.texture.get_gradient()
+	GLOBAL.GUI = self
 
-# updates the life force of the character
-# returns false if <=0 and true otherwise
-func update_life_force(life_delta):
-	# update number
-	GLOBAL.life_force += life_delta
-	# prevent overflow
-	if GLOBAL.life_force > GLOBAL.life_force_max:
-		GLOBAL.life_force = GLOBAL.life_force_max
-	#print_debug(GLOBAL.life_force)
-	
+func update_life_display():
 	# update display
-	if life_delta < 0:
-		gradient.set_offset(0,GLOBAL.life_force/GLOBAL.life_force_max - 0.05)
-		gradient.set_offset(1,GLOBAL.life_force/GLOBAL.life_force_max)
-	elif life_delta > 0:
-		gradient.set_offset(1,GLOBAL.life_force/GLOBAL.life_force_max)
-		gradient.set_offset(0,GLOBAL.life_force/GLOBAL.life_force_max - 0.05)
-	
-	return GLOBAL.life_force > 0
+	var life_fraction = GLOBAL.life_force/GLOBAL.life_force_max
+	if life_fraction - gradient.get_offset(1) < 0:
+		gradient.set_offset(0,life_fraction - 0.05)
+		gradient.set_offset(1,life_fraction)
+	else:
+		gradient.set_offset(1,life_fraction)
+		gradient.set_offset(0,life_fraction - 0.05)
+	print_debug(gradient.offsets)
 
 func test():
 	print_debug("test")
