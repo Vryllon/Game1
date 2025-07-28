@@ -1,23 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://7mghutk255tp"]
+[gd_scene load_steps=5 format=3 uid="uid://7mghutk255tp"]
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_yf83a"]
-
-[sub_resource type="Gradient" id="Gradient_jskk5"]
-offsets = PackedFloat32Array(0.95, 1)
-colors = PackedColorArray(0, 1, 0, 1, 0, 0, 0, 0.65098)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jc1u4"]
-gradient = SubResource("Gradient_jskk5")
-width = 100
+[ext_resource type="Texture2D" uid="uid://hxbg2n8b83va" path="res://art/UI/LifeBarUnder.tres" id="2_y4cf8"]
+[ext_resource type="Texture2D" uid="uid://pla6ixmslnn3" path="res://art/UI/LifeBarOver.tres" id="3_iiuxc"]
+[ext_resource type="Texture2D" uid="uid://bfc4hsbmkylfu" path="res://art/UI/LifeBarProgress.tres" id="4_cv40b"]
 
 [node name="GUI" type="Node2D"]
 top_level = true
 script = ExtResource("1_yf83a")
 
 [node name="Life_Bar" type="Node2D" parent="."]
+position = Vector2(1100, 52)
 scale = Vector2(2, 2)
 
-[node name="Sprite2D" type="Sprite2D" parent="Life_Bar"]
-position = Vector2(516, 18.5)
-scale = Vector2(1, 20)
-texture = SubResource("GradientTexture1D_jc1u4")
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Life_Bar"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 20.0
+grow_horizontal = 0
+value = 100.0
+rounded = true
+texture_under = ExtResource("2_y4cf8")
+texture_over = ExtResource("3_iiuxc")
+texture_progress = ExtResource("4_cv40b")
