@@ -3,6 +3,12 @@ class_name GLOBAL
 
 static var GUI : Node2D
 
+# Important Nodes
+
+static var player
+static var inventory
+
+
 # Item Data
 
 static var item_data = {

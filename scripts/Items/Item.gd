@@ -38,7 +38,7 @@ func follow_mouse_on_drag():
 
 func try_gravitate_towards_player():
 	# If inventory is full then exit the function
-	if get_node("/root/Main/Inventory").is_full():
+	if GLOBAL.inventory.is_full():
 		return
 	# Gravitate towards the player when in the players Pickup_Range Area2D
 	var player = $Area2D.get_overlapping_areas()
@@ -51,7 +51,7 @@ func check_if_collect(player_position):
 	if (player_position - position).length() < 5:
 		#print_debug(name)
 		# Add the item to the player's inventory
-		if get_node("/root/Main/Inventory").add_item(self):
+		if GLOBAL.inventory.add_item(self):
 			in_inventory = true
 
 func delete():
@@ -62,5 +62,5 @@ func delete():
 func eat():
 	if(recovery_amount != 0):
 		GLOBAL.update_life_force(recovery_amount)
-		get_node("/root/Main/Inventory").delete_item(self)
+		GLOBAL.inventory.delete_item(self)
 

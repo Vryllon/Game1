@@ -6,6 +6,9 @@ const SPEED = 300.0
 # Signals
 signal exit(exit_direction)
 
+func _ready():
+	GLOBAL.player = self
+
 func _physics_process(delta):
 
 	# handle player movement updating

@@ -25,7 +25,7 @@ func handle_map_change(exit_direction):
 	# Handle changing map
 	
 	var previous_map = map_grid[4]
-	
+	print_debug(exit_direction)
 	# left
 	if(exit_direction == "right"):
 		for i in range(3):

@@ -10,6 +10,7 @@ var closest_distance = INF
 var dropped_item = null
 
 func _ready():
+	GLOBAL.inventory = self
 	# Initializes inventory slots to empty
 	for i in range(inventory_size):
 		inventory_slots.append(null)
@@ -68,7 +69,7 @@ func drop_item(item : Node2D):
 	var slot = inventory_slots.find(item)
 	if slot != -1:
 		item.scale /= 4
-		item.global_position = get_node("/root/Main/PlayerScene").global_position + Vector2(100,0)
+		item.global_position = GLOBAL.player.global_position + Vector2(100,0)
 		item.in_inventory = false
 		item.reparent(GLOBAL.current_map)
 		filled_slots -= 1
