@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4kbxlsmu0ip"]
+[gd_scene load_steps=4 format=3 uid="uid://d4kbxlsmu0ip"]
 
+[ext_resource type="PackedScene" uid="uid://d2lhxx6ln21ht" path="res://scenes/main_menu.tscn" id="1_3bfx3"]
 [ext_resource type="PackedScene" uid="uid://h4e5b7hchff7" path="res://scenes/game.tscn" id="1_i2vo5"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_kf1y5"]
 
 [node name="Main" type="Node2D"]
 self_modulate = Color(0.054902, 0.678431, 0, 1)
+script = ExtResource("1_kf1y5")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_3bfx3")]
 
 [node name="Game" parent="." instance=ExtResource("1_i2vo5")]
+process_mode = 4
+visible = false

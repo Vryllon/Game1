@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2lhxx6ln21ht"]
+
+[ext_resource type="Texture2D" uid="uid://jk6vertc4rfk" path="res://art/Menus/MainMenuBackground.tres" id="1_pq5s8"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_s2uln"]
+[ext_resource type="Theme" uid="uid://7g66lovpoc10" path="res://art/Menus/TextTheme.tres" id="1_vknfj"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_s2uln")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+theme = ExtResource("1_vknfj")
+
+[node name="PlayButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(144, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499566
+anchor_top = 0.675
+anchor_right = 0.499566
+anchor_bottom = 0.675
+offset_left = -95.5
+offset_top = -48.0
+offset_right = 95.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Play"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Menu"]
+show_behind_parent = true
+position = Vector2(576, 320)
+texture = ExtResource("1_pq5s8")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 96
+text = "LOST"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Menu/PlayButton" to="." method="_on_play_button_pressed"]
