@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyhq0satnexha"]
+
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_2nyus"]
+[ext_resource type="Theme" uid="uid://7g66lovpoc10" path="res://art/Menus/TextTheme.tres" id="2_pe7yw"]
+[ext_resource type="Texture2D" uid="uid://jk6vertc4rfk" path="res://art/Menus/MainMenuBackground.tres" id="3_gmdtp"]
+
+[node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_2nyus")
+
+[node name="Screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+theme = ExtResource("2_pe7yw")
+
+[node name="PlayAgain" type="Button" parent="Screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.270399
+anchor_top = 0.675
+anchor_right = 0.389323
+anchor_bottom = 0.675
+offset_left = -95.5
+offset_top = -48.0
+offset_right = 95.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Play Again"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="MainMenu" type="Button" parent="Screen"]
+custom_minimum_size = Vector2(144, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.610677
+anchor_top = 0.675
+anchor_right = 0.755642
+anchor_bottom = 0.675
+offset_left = -95.5
+offset_top = -48.0
+offset_right = 95.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Screen"]
+show_behind_parent = true
+position = Vector2(576, 320)
+texture = ExtResource("3_gmdtp")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 96
+text = "Dead"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Screen/PlayAgain" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Screen/MainMenu" to="." method="_on_main_menu_pressed"]

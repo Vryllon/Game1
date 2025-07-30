@@ -3,11 +3,37 @@ class_name GLOBAL
 
 static var GUI : Node2D
 
+# Preloads
+
+static var game_preload = preload("res://scenes/game.tscn")
+
 # Important Nodes
 
+static var main
+static var game
 static var player
 static var inventory
 
+
+
+# Game Functions
+
+static func start_game():
+	print_debug("Start Game Loading")
+	main.instantiate_scene(game_preload)
+	print_debug("Finished Game Loading")
+	main.print_tree()
+
+static func end_game():
+	print_debug("End Game")
+	game.process_mode = PROCESS_MODE_DISABLED
+	game.hide()
+	main.get_node("GameOverScreen").show()
+	game.queue_free()
+	game = null
+	current_map = null
+	life_force_max = life_force_default
+	life_force = life_force_max
 
 # Item Data
 
@@ -31,7 +57,8 @@ static var current_map : Node2D
 
 # Player Data
 
-static var life_force_max = 100
+static var life_force_default = 100
+static var life_force_max = life_force_default
 static var life_force = life_force_max
 
 # updates the life force of the character

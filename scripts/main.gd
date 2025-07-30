@@ -1,5 +1,7 @@
 extends Node2D
 
-func start_game():
-	$Game.process_mode = Node.PROCESS_MODE_INHERIT
-	$Game.show()
+func _ready():
+	GLOBAL.main = self
+
+func instantiate_scene(scene):
+	add_child(scene.instantiate())

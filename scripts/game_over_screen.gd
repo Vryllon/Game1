@@ -9,3 +9,11 @@ func handle_play():
 	self.hide()
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	GLOBAL.start_game()
+
+
+func _on_main_menu_pressed():
+	handle_menu()
+
+func handle_menu():
+	self.hide()
+	GLOBAL.main.get_node("MainMenu").show()

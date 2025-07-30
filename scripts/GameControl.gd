@@ -5,6 +5,8 @@ const map_scene_preload = preload("res://scenes/map_scene.tscn")
 
 func _ready():
 	
+	GLOBAL.game = get_parent()
+	
 	# Setup map grid
 	for i in range(9):
 		map_grid.append(null)
@@ -17,9 +19,8 @@ func _on_player_scene_exit(exit_direction):
 	#print_debug(exit_direction)
 	handle_map_change(exit_direction)
 	#$GUI.get_script().update_life_force(-20)
-	if GLOBAL.update_life_force(-20):
-		#Game Over
-		pass
+	if !GLOBAL.update_life_force(-20):
+		GLOBAL.end_game()
 
 func handle_map_change(exit_direction):
 	# Handle changing map
