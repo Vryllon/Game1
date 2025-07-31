@@ -17,3 +17,5 @@ func _on_main_menu_pressed():
 func handle_menu():
 	self.hide()
 	GLOBAL.main.get_node("MainMenu").show()
+	GLOBAL.main.get_node("MainMenu").process_mode = PROCESS_MODE_INHERIT
+

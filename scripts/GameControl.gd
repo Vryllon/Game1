@@ -75,3 +75,4 @@ func handle_map_change(exit_direction):
 	
 	# print map array
 	# print_debug(map_grid)
+

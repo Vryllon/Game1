@@ -22,13 +22,13 @@ static func start_game():
 	print_debug("Start Game Loading")
 	main.instantiate_scene(game_preload)
 	print_debug("Finished Game Loading")
-	main.print_tree()
 
 static func end_game():
 	print_debug("End Game")
 	game.process_mode = PROCESS_MODE_DISABLED
 	game.hide()
 	main.get_node("GameOverScreen").show()
+	main.get_node("GameOverScreen").process_mode = PROCESS_MODE_INHERIT
 	game.queue_free()
 	game = null
 	current_map = null
