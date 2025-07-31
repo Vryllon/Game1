@@ -14,14 +14,13 @@ position = Vector2(1100, 52)
 scale = Vector2(2, 2)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Life_Bar"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_bottom = 20.0
-grow_horizontal = 0
+offset_left = -96.0
+offset_top = -21.0
+offset_right = 4.0
+offset_bottom = -1.0
 value = 100.0
 rounded = true
 texture_under = ExtResource("2_y4cf8")
 texture_over = ExtResource("3_iiuxc")
 texture_progress = ExtResource("4_cv40b")
+metadata/_edit_use_anchors_ = true

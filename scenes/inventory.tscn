@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0q451gsuvrn2"]
+[gd_scene load_steps=9 format=3 uid="uid://b0q451gsuvrn2"]
 
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_d6lph"]
+[ext_resource type="Theme" uid="uid://7g66lovpoc10" path="res://art/Menus/TextTheme.tres" id="2_d6ws0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rk7lj"]
 
@@ -55,3 +56,48 @@ self_modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(1008, 486)
 scale = Vector2(288, 324)
 texture = SubResource("CanvasTexture_ibkd8")
+
+[node name="Labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("2_d6ws0")
+
+[node name="Inventory" type="Label" parent="Labels"]
+layout_mode = 1
+offset_left = 152.0
+offset_right = 451.0
+offset_bottom = 91.0
+text = "Inventory"
+
+[node name="Crafting" type="Label" parent="Labels"]
+offset_left = 576.0
+offset_right = 864.0
+offset_bottom = 91.0
+text = "Crafting"
+horizontal_alignment = 1
+
+[node name="Trash" type="Label" parent="Labels"]
+offset_left = 864.0
+offset_top = 32.0
+offset_right = 1152.0
+offset_bottom = 123.0
+text = "Trash"
+horizontal_alignment = 1
+
+[node name="Drop" type="Label" parent="Labels"]
+offset_left = 864.0
+offset_top = 192.0
+offset_right = 1152.0
+offset_bottom = 283.0
+text = "Drop"
+horizontal_alignment = 1
+
+[node name="Eat" type="Label" parent="Labels"]
+offset_left = 864.0
+offset_top = 440.0
+offset_right = 1152.0
+offset_bottom = 531.0
+text = "Eat"
+horizontal_alignment = 1

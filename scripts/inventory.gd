@@ -41,7 +41,7 @@ func _unhandled_input(event):
 			closest_item = null
 	
 	# Handle dropping items in various sections of the inventory
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.is_pressed():
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.is_pressed() and dropped_item:
 		# Action (Eating only for now)
 		if dropped_item.global_position.x > $Action.global_position.x - $Action.global_scale.x/2 and dropped_item.global_position.y > $Action.global_position.y - $Action.global_scale.y/2:
 			dropped_item.eat()
