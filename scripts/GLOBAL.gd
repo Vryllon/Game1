@@ -5,7 +5,7 @@ static var GUI : Node2D
 
 # Preloads
 
-static var game_preload = preload("res://scenes/game.tscn")
+static var game_preload = load("res://scenes/game.tscn")
 
 # Important Nodes
 

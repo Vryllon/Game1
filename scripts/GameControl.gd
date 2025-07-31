@@ -1,7 +1,7 @@
 extends Node2D
 
 var map_grid: Array[Node2D]
-const map_scene_preload = preload("res://scenes/map_scene.tscn")
+var map_scene_preload = load("res://scenes/map_scene.tscn")
 
 func _ready():
 	

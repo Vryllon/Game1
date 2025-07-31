@@ -3,7 +3,7 @@ class_name Interactable_Resource
 
 var interactable_area : Area2D 
 
-var Item = preload("res://scenes/Items/item.tscn")
+var Item = load("res://scenes/Items/item.tscn")
 var Name
 
 # Initialization
