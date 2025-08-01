@@ -58,6 +58,7 @@ scale = Vector2(288, 324)
 texture = SubResource("CanvasTexture_ibkd8")
 
 [node name="Labels" type="Control" parent="."]
+process_mode = 4
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
