@@ -72,6 +72,7 @@ offset_bottom = 91.0
 text = "Inventory"
 
 [node name="Crafting" type="Label" parent="Labels"]
+layout_mode = 0
 offset_left = 576.0
 offset_right = 864.0
 offset_bottom = 91.0
@@ -79,6 +80,7 @@ text = "Crafting"
 horizontal_alignment = 1
 
 [node name="Trash" type="Label" parent="Labels"]
+layout_mode = 0
 offset_left = 864.0
 offset_top = 32.0
 offset_right = 1152.0
@@ -87,6 +89,7 @@ text = "Trash"
 horizontal_alignment = 1
 
 [node name="Drop" type="Label" parent="Labels"]
+layout_mode = 0
 offset_left = 864.0
 offset_top = 192.0
 offset_right = 1152.0
@@ -95,6 +98,7 @@ text = "Drop"
 horizontal_alignment = 1
 
 [node name="Eat" type="Label" parent="Labels"]
+layout_mode = 0
 offset_left = 864.0
 offset_top = 440.0
 offset_right = 1152.0
