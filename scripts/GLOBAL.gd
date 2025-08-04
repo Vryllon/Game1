@@ -40,7 +40,8 @@ static func end_game():
 static var item_data = {
 	"stick" : {"width" : 20, "height" : 20, "texture_path" : "res://art/Items/stick.tres", "recovery_amount" : 0},
 	"apple" : {"width" : 30, "height" : 30, "texture_path" : "res://art/Items/apple.tres", "recovery_amount" : 20},
-	"stone" : {"width" : 20, "height" : 20, "texture_path" : "res://art/Items/stone.tres", "recovery_amount" : 0}
+	"stone" : {"width" : 20, "height" : 20, "texture_path" : "res://art/Items/stone.tres", "recovery_amount" : 0},
+	"tool" : {"width" : 30, "height" : 30, "texture_path" : "res://art/Items/stone.tres", "recovery_amount" : -50}
 }
 
 

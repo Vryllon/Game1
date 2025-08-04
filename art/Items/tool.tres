@@ -1,0 +1,12 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://cfrerpy100quc"]
+
+[sub_resource type="Gradient" id="Gradient_ow6xp"]
+offsets = PackedFloat32Array(0.399, 0.4, 0.6, 0.601)
+colors = PackedColorArray(1, 1, 1, 0, 0.301961, 0.301961, 0.301961, 1, 0.301961, 0.301961, 0.301961, 1, 1, 1, 1, 0)
+
+[resource]
+gradient = SubResource("Gradient_ow6xp")
+width = 100
+height = 100
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)

@@ -35,7 +35,7 @@ func array_contains_string(array, string):
 # Crafting Recipes
 
 static var crafting_recipes = {
-	"tool" : ["stick", "stone", "stick"]
+	"tool" : ["stick", "stone"]
 }
 
 
