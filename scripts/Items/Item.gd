@@ -4,6 +4,7 @@ class_name Item
 static var preload_dict : Dictionary # stores the list of resources of all items for quick access (especially for storing items)
 
 const SPEED = 1
+static var item_number = 0
 
 var in_inventory = false
 var recovery_amount = 0
@@ -23,7 +24,8 @@ func _process(delta):
 func initialize(name):
 	var item_data = GLOBAL.item_data[name]
 	if item_data:
-		self.set_name(name)
+		self.set_name(name + "|" + str(item_number))
+		item_number += 1
 		get_node("Sprite2D").texture = load(item_data.texture_path)
 		self.transform.x = Vector2(item_data.width, 0)
 		self.transform.y = Vector2(0, item_data.height)

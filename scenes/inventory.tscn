@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0q451gsuvrn2"]
+[gd_scene load_steps=11 format=3 uid="uid://b0q451gsuvrn2"]
 
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_d6lph"]
+[ext_resource type="Script" path="res://scripts/crafting.gd" id="2_18sgt"]
 [ext_resource type="Theme" uid="uid://7g66lovpoc10" path="res://art/Menus/TextTheme.tres" id="2_d6ws0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rk7lj"]
@@ -8,6 +9,9 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_pjn51"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0pn1h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrnme"]
+size = Vector2(1, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8y566"]
 
@@ -38,6 +42,12 @@ self_modulate = Color(0.419608, 0, 0.380392, 0.392157)
 position = Vector2(720, 324)
 scale = Vector2(288, 648)
 texture = SubResource("CanvasTexture_0pn1h")
+script = ExtResource("2_18sgt")
+
+[node name="Area2D" type="Area2D" parent="Crafting"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crafting/Area2D"]
+shape = SubResource("RectangleShape2D_rrnme")
 
 [node name="Trash" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0, 0, 0.392157)
@@ -106,3 +116,22 @@ offset_right = 1152.0
 offset_bottom = 531.0
 text = "Eat"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+top_level = true
+anchors_preset = -1
+anchor_left = 0.569
+anchor_top = 0.79
+anchor_right = 0.681
+anchor_bottom = 0.889
+offset_left = -15.488
+offset_top = -15.92
+offset_right = 17.4879
+offset_bottom = 15.928
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_d6ws0")
+text = "Craft"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Button" to="Crafting" method="_on_button_pressed"]
