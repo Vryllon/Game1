@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rw7hih5y5ib"]
+
+[ext_resource type="SpriteFrames" uid="uid://bsce10kv5si6x" path="res://art/Enemy/Enemy_idle.tres" id="1_n7pgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfs57"]
+size = Vector2(64, 64)
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yfs57")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_n7pgk")
