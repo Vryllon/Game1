@@ -84,5 +84,10 @@ func delete_item(item : Node2D):
 		print_debug("Delete Item")
 		filled_slots -= 1
 
+func search_item(name):
+	for i in inventory_slots:
+		if i != null and i.name.split("|")[0] == name:
+			return i
+
 func is_full():
 	return filled_slots >= inventory_size

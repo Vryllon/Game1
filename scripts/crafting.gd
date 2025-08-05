@@ -5,14 +5,13 @@ extends Node2D
 
 func craft():
 	#print_debug("craft")
-	var ingredients = []
-	var ingredients_areas = $Area2D.get_overlapping_areas()
-	for i in ingredients_areas:
-		ingredients.append(i.get_parent().name.split("|")[0])
-	print_debug("ingredients = " + str(ingredients))
+	var ingredients = get_areas_in_crafting()
 	
 	var recipe = ingredients_to_recipe(ingredients)
 	print_debug(recipe)
+	
+	if recipe != null: remove_used_ingredients(crafting_recipes[recipe])
+
 
 func ingredients_to_recipe(ingredients : Array):
 	for r in crafting_recipes:
@@ -21,15 +20,38 @@ func ingredients_to_recipe(ingredients : Array):
 		for i in ingredients:
 			if array_contains_string(recipe_requirements,i):
 				recipe_requirements.erase(i)
-			print_debug("recipe requirements = " + str(recipe_requirements))
+			#print_debug("recipe requirements = " + str(recipe_requirements))
 		if(recipe_requirements == []):
 			return r
 
+
 func array_contains_string(array, string):
 	for s in array:
-		print_debug(s + " == " + string + " ?")
+		#print_debug(s + " == " + string + " ?")
 		if s == string : return true
 	return false
+
+
+func remove_used_ingredients(recipe):
+	var ingredients = $Area2D.get_overlapping_areas()
+	
+	for i in recipe:
+		# Search for ingredient
+		for ingredient in ingredients:
+			if(i == ingredient.get_parent().name.split("|")[0]):
+				# removes ingredient from inventory
+				get_parent().delete_item(ingredient.get_parent())
+				break
+		
+
+
+func get_areas_in_crafting():
+	var ingredients = []
+	var ingredients_areas = $Area2D.get_overlapping_areas()
+	for i in ingredients_areas:
+		ingredients.append(i.get_parent().name.split("|")[0])
+	#print_debug("ingredients = " + str(ingredients))
+	return ingredients
 
 
 # Crafting Recipes
@@ -41,5 +63,5 @@ static var crafting_recipes = {
 
 # Button Connection
 func _on_button_pressed():
-	print_debug("pressed")
+	#print_debug("pressed")
 	craft()
