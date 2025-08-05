@@ -59,6 +59,7 @@ func add_item(item : Node2D):
 			inventory_slots[i] = item
 			filled_slots += 1
 			item.reparent(self)
+			item.in_inventory = true
 			item.scale *= 4
 			item.global_position.x = randi_range(50, get_viewport_rect().size.x / 2 - 50)
 			item.global_position.y = randi_range(50, get_viewport_rect().size.y - 50)

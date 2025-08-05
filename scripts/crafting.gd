@@ -1,16 +1,29 @@
 extends Node2D
 
 
+var Item = load("res://scenes/Items/item.tscn")
+
+
 # Crafting Functions
 
 func craft():
 	#print_debug("craft")
+	# Gather ingredients in the crafting area
 	var ingredients = get_areas_in_crafting()
 	
+	# Check what recipe is being crafted
 	var recipe = ingredients_to_recipe(ingredients)
 	print_debug(recipe)
 	
-	if recipe != null: remove_used_ingredients(crafting_recipes[recipe])
+	if recipe != null: 
+		# Remove the ingredients used to craft the recipe
+		remove_used_ingredients(crafting_recipes[recipe])
+		
+		# Create the crafted item in the inventory
+		var item = Item.instantiate()
+		add_child(item)
+		item.initialize(recipe)
+		get_parent().add_item(item)
 
 
 func ingredients_to_recipe(ingredients : Array):
