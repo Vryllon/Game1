@@ -14,3 +14,5 @@ shape = SubResource("RectangleShape2D_yfs57")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_uhbr6")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -9,7 +9,6 @@
 
 [node name="Interactable_Resource" type="Node2D"]
 top_level = true
-position = Vector2(0, -25)
 script = ExtResource("1_1jou5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -29,3 +28,6 @@ shape = SubResource("CircleShape2D_f4hog")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("2_wvmv5")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 0.75
