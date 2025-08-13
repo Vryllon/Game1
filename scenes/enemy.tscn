@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://rw7hih5y5ib"]
+[gd_scene load_steps=4 format=3 uid="uid://rw7hih5y5ib"]
 
-[ext_resource type="SpriteFrames" uid="uid://bsce10kv5si6x" path="res://art/Enemy/Enemy_idle.tres" id="1_n7pgk"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3lb0k"]
+[ext_resource type="SpriteFrames" uid="uid://bsce10kv5si6x" path="res://art/Enemy/Enemy_idle.tres" id="1_uhbr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfs57"]
 size = Vector2(64, 64)
 
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_3lb0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yfs57")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_n7pgk")
+sprite_frames = ExtResource("1_uhbr6")
