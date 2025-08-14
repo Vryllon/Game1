@@ -7,6 +7,9 @@
 size = Vector2(64, 64)
 
 [node name="Enemy" type="CharacterBody2D"]
+top_level = true
+collision_layer = 0
+safe_margin = 1.0
 script = ExtResource("1_3lb0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,3 +19,5 @@ shape = SubResource("RectangleShape2D_yfs57")
 sprite_frames = ExtResource("1_uhbr6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_path_custom_line_width = 1.0

@@ -10,8 +10,8 @@ var enemy_num = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$Sprite2D.set_self_modulate(Color(randf(),randf(),randf(),1))
-	#spawn_interactable_resource("rock", boulder_num)
-	#spawn_interactable_resource("tree", tree_num)
+	spawn_interactable_resource("rock", boulder_num)
+	spawn_interactable_resource("tree", tree_num)
 	spawn_enemy(enemy_num)
 
 func spawn_interactable_resource(type, amount):
@@ -19,13 +19,13 @@ func spawn_interactable_resource(type, amount):
 		var ir = interactable_resource_preload.instantiate()
 		set_random_position(ir)
 		ir.initialize(type)
-		add_child(ir)
+		$NavigationRegion2D.add_child(ir)
 
 func spawn_enemy(amount):
 	for i in range(amount):
 		var enemy = enemy_preload.instantiate()
 		set_random_position(enemy)
-		add_child(enemy)
+		$NavigationRegion2D.add_child(enemy)
 
 func set_random_position(object):
 	object.position = Vector2(randi_range(100,1052), randi_range(100,548))

@@ -11,6 +11,10 @@
 top_level = true
 script = ExtResource("1_1jou5")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 1.0
+vertices = PackedVector2Array(0, -1, -1, 0, 0, 1, 1, 0)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 
@@ -28,6 +32,3 @@ shape = SubResource("CircleShape2D_f4hog")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("2_wvmv5")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 0.75

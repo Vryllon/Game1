@@ -1,7 +1,0 @@
-[gd_resource type="NavigationPolygon" format=3 uid="uid://de01ok5iphf8v"]
-
-[resource]
-vertices = PackedVector2Array(1152, 0, 1152, 648, 0, 648, 0, 0)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 648, 1152, 648, 1152, 0)])
-cell_size = 0.01
