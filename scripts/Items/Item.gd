@@ -3,7 +3,7 @@ class_name Item
 
 static var preload_dict : Dictionary # stores the list of resources of all items for quick access (especially for storing items)
 
-const SPEED = 1
+const SPEED = 2
 static var item_number = 0
 
 var in_inventory = false
