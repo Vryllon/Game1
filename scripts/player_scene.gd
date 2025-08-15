@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var damage = 20
+
 var attack = false
 
 # Signals
@@ -30,6 +32,11 @@ func handle_attack():
 	if not attack:
 		$AnimatedSprite2D.play("attack")
 		attack = true
+		
+		# deal damage to all enemies in attack range
+		for e in $Attack_Area.get_overlapping_bodies():
+			#print_debug(e)
+			e.update_health(-damage)
 
 func _physics_process(delta):
 

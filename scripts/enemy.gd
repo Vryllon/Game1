@@ -42,6 +42,8 @@ func damage_player():
 
 func update_health(delta):
 	health += delta
+	if health <= 0:
+		self.queue_free()
 
 func navigate_to_player(delta):
 	$NavigationAgent2D.target_position = GLOBAL.player.global_position
