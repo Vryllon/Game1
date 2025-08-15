@@ -17,9 +17,9 @@ signal exit(exit_direction)
 func _ready():
 	GLOBAL.player = self
 
-func _unhandled_input(event):
+func _unhandled_key_input(event):
 	# handle button for attack
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event.is_action("Attack"):
 		if not attack:
 			handle_attack()
 
