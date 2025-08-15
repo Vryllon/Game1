@@ -3,11 +3,23 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var attack = false
+
 # Signals
 signal exit(exit_direction)
 
 func _ready():
 	GLOBAL.player = self
+
+func _process(delta):
+	# handle attack animation (play once)
+	if attack == true and $AnimatedSprite2D.animation_finished():
+		# revert back to normal animation
+		$AnimatedSprite2D.play("default")
+
+func handle_attack():
+	$AnimatedSprite2D.play("attack")
+	attack = true
 
 func _physics_process(delta):
 
