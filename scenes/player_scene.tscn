@@ -71,8 +71,6 @@ shape = SubResource("CircleShape2D_ewcp4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0ek0k")
-animation = &"attack"
-frame_progress = 0.490744
 
 [node name="Pickup_Range" type="Area2D" parent="."]
 visible = false
@@ -88,3 +86,5 @@ scale = Vector2(6, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Area"]
 shape = SubResource("CircleShape2D_a6fdi")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

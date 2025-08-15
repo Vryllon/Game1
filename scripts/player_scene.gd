@@ -11,15 +11,26 @@ signal exit(exit_direction)
 func _ready():
 	GLOBAL.player = self
 
-func _process(delta):
-	# handle attack animation (play once)
-	if attack == true and $AnimatedSprite2D.animation_finished():
-		# revert back to normal animation
+func _unhandled_input(event):
+	# handle button for attack
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not attack:
+			handle_attack()
+		else:
+			attack = false
+			$AnimatedSprite2D.play("default")
+
+func _on_animated_sprite_2d_animation_looped():
+	print_debug("finished")
+	# handle ending attack animation
+	if attack:
+		attack = false
 		$AnimatedSprite2D.play("default")
 
 func handle_attack():
-	$AnimatedSprite2D.play("attack")
-	attack = true
+	if not attack:
+		$AnimatedSprite2D.play("attack")
+		attack = true
 
 func _physics_process(delta):
 
@@ -54,6 +65,4 @@ func _physics_process(delta):
 	elif (position.y > 648):
 		position.y = 0
 		emit_signal("exit", "bottom")
-	
-	
 
