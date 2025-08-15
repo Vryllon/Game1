@@ -12,7 +12,7 @@ func _ready():
 	#$Sprite2D.set_self_modulate(Color(randf(),randf(),randf(),1))
 	spawn_interactable_resource("rock", boulder_num)
 	spawn_interactable_resource("tree", tree_num)
-	spawn_enemy(enemy_num)
+	spawn_enemy("hawk", enemy_num)
 
 func spawn_interactable_resource(type, amount):
 	for i in range(amount):
@@ -21,10 +21,11 @@ func spawn_interactable_resource(type, amount):
 		ir.initialize(type)
 		$NavigationRegion2D.add_child(ir)
 
-func spawn_enemy(amount):
+func spawn_enemy(type, amount):
 	for i in range(amount):
 		var enemy = enemy_preload.instantiate()
 		set_random_position(enemy)
+		enemy.initialize(type)
 		$NavigationRegion2D.add_child(enemy)
 
 func set_random_position(object):

@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
-var speed = 200.0
-var damage = 20
+static var health_modifier = 1
+static var damage_modifier = 1
+static var cooldown_modifier = 1
+static var speed_modifier = 1
+
+var speed = 100
+var damage = 10
 var atk_cooldown = 1
-var move_cooldown = 0.25
+
+var health = 100
 
 var timer = 0
 
@@ -13,17 +19,29 @@ func _ready():
 func _physics_process(delta):
 	timer += delta
 	
-	if timer > move_cooldown:
+	# Movement cooldown
+	if timer > atk_cooldown / 4:
 		navigate_to_player(delta)
 	
+	# Attack cooldown
 	if get_slide_collision_count() > 0 && timer > atk_cooldown:
 		timer = 0
 		velocity = Vector2.ZERO
 		damage_player()
 
+func initialize(type):
+	var data = GLOBAL.enemy_data[type]
+	$AnimatedSprite2D.animation = data["texture_path"]
+	health = data["health"] * health_modifier
+	damage = data["damage"] * damage_modifier
+	speed = data["speed"] * speed_modifier
+	atk_cooldown = data["cooldown"] * cooldown_modifier
 
 func damage_player():
 	GLOBAL.update_life_force(-damage)
+
+func update_health(delta):
+	health += delta
 
 func navigate_to_player(delta):
 	$NavigationAgent2D.target_position = GLOBAL.player.global_position

@@ -16,12 +16,11 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not attack:
 			handle_attack()
-		else:
-			attack = false
-			$AnimatedSprite2D.play("default")
 
+# Handles when animations try to loop
 func _on_animated_sprite_2d_animation_looped():
-	print_debug("finished")
+	#print_debug("finished animation")
+	
 	# handle ending attack animation
 	if attack:
 		attack = false
@@ -41,9 +40,8 @@ func _physics_process(delta):
 	vertical = Input.get_axis("ui_up", "ui_down")
 	
 	velocity = Vector2(horizontal, vertical).normalized() * SPEED
-
-	move_and_slide()
 	
+	move_and_slide()
 	
 	# Check if player is still in frame
 	# Shift player to opposite edge to mimic looping to next area

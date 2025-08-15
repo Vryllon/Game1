@@ -53,6 +53,13 @@ static var interactable_resource_data = {
 }
 
 
+# Enemy Data
+
+static var enemy_data = {
+	"hawk" : {"texture_path" : "res://art/Enemy/Enemy_idle.tres", "health" : 100, "damage" : 20, "cooldown" : 1, "speed" : 200}
+}
+
+
 # Map Data
 
 static var current_map : Node2D
