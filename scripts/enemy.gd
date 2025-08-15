@@ -38,7 +38,7 @@ func initialize(type):
 	atk_cooldown = data["cooldown"] * cooldown_modifier
 
 func damage_player():
-	GLOBAL.update_life_force(-damage)
+	GLOBAL.player.update_life_force(-damage)
 
 func update_health(delta):
 	health += delta

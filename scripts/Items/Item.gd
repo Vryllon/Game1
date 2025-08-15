@@ -63,6 +63,6 @@ func delete():
 # Food Handling
 func eat():
 	if(recovery_amount != 0):
-		GLOBAL.update_life_force(recovery_amount)
+		GLOBAL.player.update_life_force(recovery_amount)
 		GLOBAL.inventory.delete_item(self)
 

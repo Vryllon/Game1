@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var life_force_default = 100
+var life_force_max = life_force_default
+var life_force = life_force_max
+
 var damage = 20
 
 var attack = false
@@ -37,6 +41,25 @@ func handle_attack():
 		for e in $Attack_Area.get_overlapping_bodies():
 			#print_debug(e)
 			e.update_health(-damage)
+
+# updates the life force of the character
+# returns false if <=0 and true otherwise
+func update_life_force(life_delta):
+	# update number
+	life_force += life_delta
+	# prevent overflow
+	if life_force > life_force_max:
+		life_force = life_force_max
+	print_debug(life_force)
+	
+	# Update GUI
+	if GLOBAL.GUI: GLOBAL.GUI.update_life_display()
+	
+	if life_force <= 0:
+		GLOBAL.end_game()
+		return
+	
+	return life_force > 0
 
 func _physics_process(delta):
 

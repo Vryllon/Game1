@@ -8,8 +8,8 @@ func _ready():
 
 func update_life_display():
 	# update display
-	lifebar.max_value = GLOBAL.life_force_max
-	lifebar.value = GLOBAL.life_force
+	lifebar.max_value = GLOBAL.player.life_force_max
+	lifebar.value = GLOBAL.player.life_force
 	
 
 func test():

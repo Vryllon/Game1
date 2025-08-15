@@ -32,8 +32,8 @@ static func end_game():
 	game.queue_free()
 	game = null
 	current_map = null
-	life_force_max = life_force_default
-	life_force = life_force_max
+	player.life_force_max = player.life_force_default
+	player.life_force = player.life_force_max
 
 # Item Data
 
@@ -65,23 +65,3 @@ static var enemy_data = {
 static var current_map : Node2D
 
 
-# Player Data
-
-static var life_force_default = 100
-static var life_force_max = life_force_default
-static var life_force = life_force_max
-
-# updates the life force of the character
-# returns false if <=0 and true otherwise
-static func update_life_force(life_delta):
-	# update number
-	GLOBAL.life_force += life_delta
-	# prevent overflow
-	if life_force > life_force_max:
-		life_force = life_force_max
-	print_debug(life_force)
-	
-	# Update GUI
-	if GUI: GUI.update_life_display()
-	
-	return life_force > 0
